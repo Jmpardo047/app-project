@@ -6,6 +6,7 @@
   background-color: #3d3935;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 *{
   margin: 0;
@@ -25,4 +26,5 @@ body {
   align-items: center;
   justify-content: center;
   gap: 1em;
+  transition: all ease-in-out 2s;
 }

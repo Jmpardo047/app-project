@@ -5,7 +5,7 @@ import { BootStyles } from '../bootstrap';
 export class Home extends LitElement {
   static get properties() {
     return {
-      op: {type:Number}
+      op: {type:String}
     }
   }
 
@@ -35,7 +35,7 @@ export class Home extends LitElement {
   constructor() {
     super()
     this.docsHint = 'Click on the Vite and Lit logos to learn more'
-    this.op = 1
+    this.op = flex
   }
 
   render() {
