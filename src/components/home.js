@@ -11,6 +11,7 @@ export class Home extends LitElement {
 
   static get styles() {
     return [BootStyles,css`
+    
       h1{
         font-size: 3.5em;
         text-align: center;
@@ -49,7 +50,7 @@ export class Home extends LitElement {
       <div class="d-flex justify-content-center">
         <div @click=${this._onClick} part="button" class="button d-flex justify-content-center align-items-center mt-4">
           Empezar
-        </button>
+        </div> 
       </div>
     </div>
 
