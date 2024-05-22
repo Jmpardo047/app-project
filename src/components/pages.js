@@ -3,12 +3,14 @@ import { BootStyles } from '../bootstrap';
 
 export class Pages extends LitElement {
     static properties = {
-        pages: {}
+        pages: {},
+        counter: {type:Number}
     }
     
 
     constructor(){
         super();
+        this.counter = 0;
         this.pages = [
 
             {
@@ -23,8 +25,8 @@ export class Pages extends LitElement {
                         subtext: "Buena relacion calidad/precio",
                     },
                     {
-                        photo2: "img/Picture4.png",
-                        subtext2: "No me importa tanto la calidad",
+                        photo: "img/Picture4.png",
+                        subtext: "No me importa tanto la calidad",
                     }
                 ]
             },
@@ -67,23 +69,20 @@ export class Pages extends LitElement {
     render (){
         return html`
         <div class="d-flex flex-column align-items-center ">
-        <p class="fw-bold" style="font-size: 3rem;">hh</p>
+        <p class="fw-bold" style="font-size: 3rem;">${this.pages[this.counter].question}</p>
         <div class="d-flex flex-row">
-            <div class="d-flex flex-column align-items-center">
-                <img src="img/Picture2.png" alt="" class="photo">
-                <p class="subtext">Holaaa</p>
-            </div>
-            <div class= "d-flex flex-column align-items-center">
-                <img src="img/Picture2.png" alt="" class="photo">
-                <p class="subtext">Holaaa</p>
-            </div>
-            <div class="d-flex flex-column align-items-center">
-                <img src="img/Picture2.png" alt="" class="photo">
-                <p class="subtext">Holaaa</p>
-            </div>
-        </div>
-      </div>
+            ${this.pages[this.counter].options.map((item) => html`
+                <div @click="${this._uptCounter}" class="d-flex flex-column align-items-center">
+                <img src=${item.photo} alt="" class="photo">
+                <p part="button" class="subtext">${item.subtext}</p>
+                </div>
+            `)}
+        </div>  
         `;
+    }
+    _uptCounter(){  
+        this.counter = this.counter + 1;
+        console.log(this.counter)
     }
 
 }
