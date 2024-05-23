@@ -1,6 +1,5 @@
 import { LitElement, css, html } from 'lit'
 import { BootStyles } from '../bootstrap';
-
 export class Pages extends LitElement {
     static properties = {
         pages: {},
@@ -34,188 +33,176 @@ export class Pages extends LitElement {
                 question:"¿Qué tipo de App necesitas?",
                 options:[
                     {
-                        photo: "img/Picture2.png",
+                        photo: "img/android.png",
                         subtext: "Aplicación Android",
                     },
                     {
-                        photo: "img/Picture3.png",
+                        photo: "img/ios.png",
                         subtext: "Aplicación iOS",
                     },
                     {
-                        photo: "img/Picture4.png",
+                        photo: "img/windows.png",
                         subtext: "Aplicación Windows Phone",
                     },
                     {
-                        photo: "",
+                        photo: "img/windows.png",
                         subtext: "Aplicación Android + iOS"
+                    },
+                    {
+                        photo: "img/windows.png",
+                        subtext: "Aplicación de escritorio"
                     }
                 ]
             },
             {
-                question:"¿Qué tipo de App necesitas?",
+                question:"¿Qué diseño quieres que tenga tu App?",
                 options:[
                     {
                         photo: "img/Picture2.png",
-                        subtext: "Aplicación Android",
+                        subtext: "Interfaz sencilla",
                     },
                     {
                         photo: "img/Picture3.png",
-                        subtext: "Aplicación iOS",
+                        subtext: "Interfaz personalizada",
                     },
                     {
                         photo: "img/Picture4.png",
-                        subtext: "Aplicación Windows Phone",
+                        subtext: "Interfaz replicada de la web",
                     },
                     {
-                        photo: "",
-                        subtext: "Aplicación Android + iOS"
+                        photo: "img/Picture4.png",
+                        subtext: "No necesito diseño"
                     }
                 ]
             },
             {
-                question:"¿Qué tipo de App necesitas?",
+                question:"¿Cómo quieres sacar beneficio a tu App?",
                 options:[
                     {
                         photo: "img/Picture2.png",
-                        subtext: "Aplicación Android",
+                        subtext: "Aplicación gratuita con publicidad",
                     },
                     {
                         photo: "img/Picture3.png",
-                        subtext: "Aplicación iOS",
+                        subtext: "Aplicación de pago",
                     },
                     {
                         photo: "img/Picture4.png",
-                        subtext: "Aplicación Windows Phone",
+                        subtext: "Compras dentro de la app",
                     },
                     {
                         photo: "",
-                        subtext: "Aplicación Android + iOS"
+                        subtext: "Otros / No lo sé todavia"
                     }
                 ]
             },
             {
-                question:"¿Qué tipo de App necesitas?",
+                question:"¿Tu App necesita un sistema de login?",
                 options:[
                     {
                         photo: "img/Picture2.png",
-                        subtext: "Aplicación Android",
+                        subtext: "Sí, con redes sociales y email",
                     },
                     {
                         photo: "img/Picture3.png",
-                        subtext: "Aplicación iOS",
+                        subtext: "Sí, con email",
                     },
                     {
                         photo: "img/Picture4.png",
-                        subtext: "Aplicación Windows Phone",
+                        subtext: "No",
                     },
                     {
                         photo: "",
-                        subtext: "Aplicación Android + iOS"
+                        subtext: "No lo se todavia "
                     }
                 ]
             },
             {
-                question:"¿Qué tipo de App necesitas?",
+                question:"¿Tu App tiene que estar integrada con un sitio web?",
                 options:[
                     {
                         photo: "img/Picture2.png",
-                        subtext: "Aplicación Android",
+                        subtext: "Sí",
                     },
                     {
                         photo: "img/Picture3.png",
-                        subtext: "Aplicación iOS",
+                        subtext: "No",
                     },
                     {
                         photo: "img/Picture4.png",
-                        subtext: "Aplicación Windows Phone",
-                    },
-                    {
-                        photo: "",
-                        subtext: "Aplicación Android + iOS"
+                        subtext: "No lo sé",
                     }
                 ]
             },
             {
-                question:"¿Qué tipo de App necesitas?",
+                question:"¿Los usuarios tienen sus propios perfiles?",
                 options:[
                     {
                         photo: "img/Picture2.png",
-                        subtext: "Aplicación Android",
+                        subtext: "Sí",
                     },
                     {
                         photo: "img/Picture3.png",
-                        subtext: "Aplicación iOS",
+                        subtext: "No",
                     },
                     {
                         photo: "img/Picture4.png",
-                        subtext: "Aplicación Windows Phone",
-                    },
-                    {
-                        photo: "",
-                        subtext: "Aplicación Android + iOS"
+                        subtext: "No lo sé",
                     }
                 ]
             },
             {
-                question:"¿Qué tipo de App necesitas?",
+                question:"¿Tu app necesita un panel de administración?",
                 options:[
                     {
                         photo: "img/Picture2.png",
-                        subtext: "Aplicación Android",
+                        subtext: "Sí",
                     },
                     {
                         photo: "img/Picture3.png",
-                        subtext: "Aplicación iOS",
+                        subtext: "No",
                     },
                     {
                         photo: "img/Picture4.png",
-                        subtext: "Aplicación Windows Phone",
-                    },
-                    {
-                        photo: "",
-                        subtext: "Aplicación Android + iOS"
+                        subtext: "No lo sé",
                     }
                 ]
             },
             {
-                question:"¿Qué tipo de App necesitas?",
+                question:"¿Qué idiomas usará tu aplicación?",
                 options:[
                     {
                         photo: "img/Picture2.png",
-                        subtext: "Aplicación Android",
+                        subtext: "Un único idioma",
                     },
                     {
                         photo: "img/Picture3.png",
-                        subtext: "Aplicación iOS",
+                        subtext: "Bilingue",
                     },
                     {
                         photo: "img/Picture4.png",
-                        subtext: "Aplicación Windows Phone",
+                        subtext: "Multilingue",
                     },
-                    {
-                        photo: "",
-                        subtext: "Aplicación Android + iOS"
-                    }
                 ]
             },
             {
-                question:"¿Qué tipo de App necesitas?",
+                question:"¿En qué estado se encuentra tu proyecto?",
                 options:[
                     {
                         photo: "img/Picture2.png",
-                        subtext: "Aplicación Android",
+                        subtext: "Solo es una idea",
                     },
                     {
                         photo: "img/Picture3.png",
-                        subtext: "Aplicación iOS",
+                        subtext: "Boceto ya preparado",
                     },
                     {
                         photo: "img/Picture4.png",
-                        subtext: "Aplicación Windows Phone",
+                        subtext: "App en desarrollo",
                     },
                     {
                         photo: "",
-                        subtext: "Aplicación Android + iOS"
+                        subtext: "App ya desarrollada"
                     }
                 ]
             }
@@ -260,7 +247,7 @@ export class Pages extends LitElement {
         <p class="fw-bold" style="font-size: 3rem;">${this.pages[this.counter].question}</p>
         <div class="d-flex flex-row">
             ${this.pages[this.counter].options.map((item) => html`
-                <div @click="${this._uptCounter}" class="d-flex flex-column align-items-center">
+                <div @click="${this._uptCounter(item)}" class="d-flex flex-column align-items-center">
                 <img src=${item.photo} alt="" class="photo">
                 <p part="button" class="subtext">${item.subtext}</p>
                 </div>
@@ -268,9 +255,11 @@ export class Pages extends LitElement {
         </div>  
         `;
     }
-    _uptCounter(){  
+    _uptCounter(item){  
         if(this.counter <= 10 && this.counter >= 0){
             this.counter = this.counter + 1;
+            localStorage.setItem(`op${this.counter}`,`${item.subtext}`)
+            console.log(localStorage.getItem(`op${this.counter}`))
             console.log(this.counter);
         }
     }
