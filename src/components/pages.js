@@ -12,10 +12,11 @@ export class Pages extends LitElement {
         this.counter = 0;
         this.pages = [
 
-            {
+            {   number: "1/10",
                 question:"¿Que nivel de calidad estás buscando?",
                 options:[
                     {
+                     
                         photo: "img/Picture2.png",
                         subtext: "Calidad óptima",
                     },
@@ -30,6 +31,7 @@ export class Pages extends LitElement {
                 ]
             },
             {
+                number: "2/10",
                 question:"¿Qué tipo de App necesitas?",
                 options:[
                     {
@@ -205,6 +207,29 @@ export class Pages extends LitElement {
                         subtext: "App ya desarrollada"
                     }
                 ]
+            },
+            {
+                number:"3/10",
+                question:"¿Qué diseño quieres que tenga tu App?",
+                options:[
+                    {
+                        photo:"",
+                        subtext:"Interfaz Sencilla"
+                    },
+                    {
+                        photo:"",
+                        subtext:"Interfaz personalizada"
+                    },
+                    {
+                        photo:"",
+                        subtext:"Interfaz replicada de la web"
+                    },
+                    {
+                        photo:"",
+                        subtext:"No necesito diseño"
+                    }
+                    
+                ]
             }
         ]   
     }
@@ -235,9 +260,10 @@ export class Pages extends LitElement {
             justify-content:space-between;
         }
         `]
-    }
+    } 
 
     render (){
+       
         return html`
         <div class="d-flex flex-column align-items-center content">
         <div class="nav d-flex">
@@ -255,6 +281,7 @@ export class Pages extends LitElement {
         </div>  
         `;
     }
+
     _uptCounter(item){  
         if(this.counter <= 10 && this.counter >= 0){
             this.counter = this.counter + 1;
@@ -269,6 +296,8 @@ export class Pages extends LitElement {
         }
     }
 
+
 }
+   
 
 customElements.define("pages-p", Pages);

@@ -1,5 +1,4 @@
 import { LitElement, css, html } from 'lit'
-import viteLogo from '/vite.svg'
 import { BootStyles } from '../bootstrap';
 import { Pages } from './pages';
 export class Home extends LitElement {
