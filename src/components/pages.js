@@ -1,15 +1,18 @@
 import { LitElement, css, html } from 'lit'
 import { BootStyles } from '../bootstrap';
+import { Form } from './form';
 export class Pages extends LitElement {
     static properties = {
         pages: {},
-        counter: {type:Number}
+        counter: {type:Number},
+        isActive: {type:Boolean}
     }
     
 
     constructor(){
         super();
         this.counter = 0;
+        this.isActive = true
         this.pages = [
 
             {   number: "1/10",
@@ -263,37 +266,51 @@ export class Pages extends LitElement {
     } 
 
     render (){
-       
-        return html`
+        return html`${this.isActive ? html`        
         <div class="d-flex flex-column align-items-center content">
         <div class="nav d-flex">
-            <h2 class="volver" @click="${this._dwCounter}"><---volver</h2>
+            <h2 class="volver" @click="${this._dwCounter}">< volver</h2>
             <h2 id="count" class="mb">${this.counter+1}/10</h2>
         </div>
         <p class="fw-bold" style="font-size: 3rem;">${this.pages[this.counter].question}</p>
         <div class="d-flex flex-row">
             ${this.pages[this.counter].options.map((item) => html`
-                <div @click="${this._uptCounter(item)}" class="d-flex flex-column align-items-center">
+                <div @click="${() => this._uptCounter(item)}" class="d-flex flex-column align-items-center">
                 <img src=${item.photo} alt="" class="photo">
                 <p part="button" class="subtext">${item.subtext}</p>
                 </div>
             `)}
-        </div>  
-        `;
+        </div>  `
+        :html`<form-f></form-f>`}`;
     }
 
     _uptCounter(item){  
-        if(this.counter <= 10 && this.counter >= 0){
+        if(this.counter < 9 && this.counter >= 0){
             this.counter = this.counter + 1;
             localStorage.setItem(`op${this.counter}`,`${item.subtext}`)
             console.log(localStorage.getItem(`op${this.counter}`))
             console.log(this.counter);
+            
+        }
+        else if(this.counter >=9){
+            localStorage.setItem(`op${this.counter+1}`,`${item.subtext}`)
+            console.log(localStorage.getItem(`op${this.counter+1}`))
+            console.log(this.counter);
+            this._sendData()
+            this.isActive = !this.isActive;
         }
     }
     _dwCounter(){
         if(this.counter >= 0 && this.counter <= 10){
             this.counter = this.counter - 1;
         }
+    }
+    _sendData(){
+        const keys = [];
+            for(let i=0; i<localStorage.length;i++){
+                keys.push(localStorage.getItem(`op${i}`));
+            }
+        console.log(keys);
     }
 
 

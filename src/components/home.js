@@ -4,7 +4,7 @@ import { Pages } from './pages';
 export class Home extends LitElement {
   static get properties() {
     return {
-      op: {type:String}
+      op: {type:Number}
     }
   }
 
