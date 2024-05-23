@@ -1,6 +1,7 @@
 import { LitElement, css, html } from 'lit'
 import { BootStyles } from '../bootstrap';
 import { Form } from './form';
+import { Pop } from './pop';
 export class Pages extends LitElement {
     static properties = {
         pages: {},
@@ -8,7 +9,8 @@ export class Pages extends LitElement {
         isActive: {type:Boolean},
         appPrice: {type:Number},
         priceHist: {type:Array},
-        isVisible: {type:Boolean}
+        isVisible: {type:Boolean},
+        popUp: {type:Boolean}
     }
     
 
@@ -19,6 +21,7 @@ export class Pages extends LitElement {
         this.appPrice = 0;
         this.priceHist = [0];
         this.isVisible = false;
+        this.popUp = false;
         this.pages = [
 
             {   number: "1/10",
@@ -302,14 +305,17 @@ export class Pages extends LitElement {
                 <p part="button" class="subtext">${item.subtext}</p>
                 </div>
             `)}
+            <pop-up style="display: ${this.pop ? 'block':'none'};"></pop-up>
         </div>  `
         :html`<form-f></form-f>`}`;
     }
 
     _uptCounter(item){  
         if(this.counter < 9 && this.counter >= 0){
-            this.counter = this.counter + 1;
-            localStorage.setItem(`op${this.counter}`,`${item.subtext}`);       
+            localStorage.setItem(`op${this.counter}`,`${item.subtext}`);   
+            if(item.subtext === "Aplicación de escritorio"){
+                this.popUp = true;
+            }    
             this.appPrice += parseInt(`${item.price}`);
             this.priceHist.push(this.appPrice);
             console.log(this.priceHist);
@@ -318,7 +324,7 @@ export class Pages extends LitElement {
             if(this.counter>=0){
                 this.isVisible = true;
             }
-            
+            this.counter = this.counter + 1;
         }
         else if(this.counter >=9){
             localStorage.setItem(`op${this.counter+1}`,`${item.subtext}`)
