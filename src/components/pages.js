@@ -1,6 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { BootStyles } from '../bootstrap';
-import { Home } from './home';
+import { Form } from './form';
 export class Pages extends LitElement {
     static properties = {
         pages: {},
@@ -281,7 +281,7 @@ export class Pages extends LitElement {
                 </div>
             `)}
         </div>  `
-        :html`<home-page></home-page>`}`;
+        :html`<form-f></form-f>`}`;
     }
 
     _uptCounter(item){  
