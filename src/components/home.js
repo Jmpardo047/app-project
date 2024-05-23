@@ -4,7 +4,7 @@ import { Pages } from './pages';
 export class Home extends LitElement {
   static get properties() {
     return {
-      isActive: {type:Boolean}
+      op: {type:String}
     }
   }
 
@@ -36,8 +36,9 @@ export class Home extends LitElement {
   }
 
   constructor() {
-    super();
-    this.isActive = true;
+    super()
+    this.docsHint = 'Click on the Vite and Lit logos to learn more'
+    this.op = 1
   }
 
   render() {
