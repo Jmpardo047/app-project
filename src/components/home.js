@@ -36,7 +36,7 @@ export class Home extends LitElement {
   }
 
   constructor() {
-    super()
+    super();
     this.isActive = true;
   }
 
