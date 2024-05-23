@@ -15,10 +15,11 @@ export class Pages extends LitElement {
         this.isActive = true
         this.pages = [
 
-            {
+            {   number: "1/10",
                 question:"¿Que nivel de calidad estás buscando?",
                 options:[
                     {
+                     
                         photo: "img/Picture2.png",
                         subtext: "Calidad óptima",
                     },
@@ -33,6 +34,7 @@ export class Pages extends LitElement {
                 ]
             },
             {
+                number: "2/10",
                 question:"¿Qué tipo de App necesitas?",
                 options:[
                     {
@@ -208,6 +210,29 @@ export class Pages extends LitElement {
                         subtext: "App ya desarrollada"
                     }
                 ]
+            },
+            {
+                number:"3/10",
+                question:"¿Qué diseño quieres que tenga tu App?",
+                options:[
+                    {
+                        photo:"",
+                        subtext:"Interfaz Sencilla"
+                    },
+                    {
+                        photo:"",
+                        subtext:"Interfaz personalizada"
+                    },
+                    {
+                        photo:"",
+                        subtext:"Interfaz replicada de la web"
+                    },
+                    {
+                        photo:"",
+                        subtext:"No necesito diseño"
+                    }
+                    
+                ]
             }
         ]   
     }
@@ -238,7 +263,7 @@ export class Pages extends LitElement {
             justify-content:space-between;
         }
         `]
-    }
+    } 
 
     render (){
         return html`${this.isActive ? html`        
@@ -288,6 +313,8 @@ export class Pages extends LitElement {
         console.log(keys);
     }
 
+
 }
+   
 
 customElements.define("pages-p", Pages);
