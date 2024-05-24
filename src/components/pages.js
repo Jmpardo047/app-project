@@ -341,7 +341,7 @@ export class Pages extends LitElement {
             console.log(localStorage.getItem(`op${this.counter+1}`))
             console.log(this.counter);
             this._sendData()
-            this.isActive = !this.isActive;
+            this.isActive = false;
         }
     }
     _dwCounter(){
