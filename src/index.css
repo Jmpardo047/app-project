@@ -26,6 +26,4 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1em;
-  transition: all ease-in-out 2s;
 }

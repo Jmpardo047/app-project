@@ -1,6 +1,7 @@
 import { LitElement, css, html } from 'lit'
 import { BootStyles } from '../bootstrap';
 import { Form } from './form';
+import { Pop } from './pop';
 export class Pages extends LitElement {
     static properties = {
         pages: {},
@@ -8,7 +9,8 @@ export class Pages extends LitElement {
         isActive: {type:Boolean},
         appPrice: {type:Number},
         priceHist: {type:Array},
-        isVisible: {type:Boolean}
+        isVisible: {type:Boolean},
+        popUp: {type:Boolean}
     }
     
 
@@ -19,6 +21,7 @@ export class Pages extends LitElement {
         this.appPrice = 0;
         this.priceHist = [0];
         this.isVisible = false;
+        this.popUp = false;
         this.pages = [
 
             {   number: "1/10",
@@ -265,7 +268,7 @@ export class Pages extends LitElement {
             font-size: 3rem;
         }
         .photo{
-            width: 20rem;
+            width: 70%;
             cursor: pointer;
         }
         #count{
@@ -275,6 +278,7 @@ export class Pages extends LitElement {
             gap:2em;
             height:100vh;
             justify-content:center;
+            width:70vw;
         }
         .volver{
             cursor:pointer;
@@ -283,33 +287,44 @@ export class Pages extends LitElement {
             width:100%;
             justify-content:space-between;
         }
+        .pop{
+            position:absolute;
+
+        }
+        .options{
+            width:100%;
+        }
+        .item{
+            width:33%
+        }
         `]
     } 
 
     render (){
         return html`${this.isActive ? html`        
-        <div class="d-flex flex-column align-items-center content">
-        <div class="nav d-flex">
-            <h2 class="volver" @click="${this._dwCounter}" style="display: ${this.isVisible ? 'block':'none'};"><---volver</h2>
-            <h2 id="count" class="mb">${this.counter+1}/10</h2>
-            <h2>${this.appPrice}$</h2>
-        </div>
-        <p class="fw-bold" style="font-size: 3rem;">${this.pages[this.counter].question}</p>
-        <div class="d-flex flex-row">
-            ${this.pages[this.counter].options.map((item) => html`
-                <div @click="${() => this._uptCounter(item)}" class="d-flex flex-column align-items-center">
-                <img src=${item.photo} alt="" class="photo">
-                <p part="button" class="subtext">${item.subtext}</p>
-                </div>
-            `)}
+        <div class="d-flex flex-column content">
+            <div class="nav d-flex">
+                <h2 class="volver" @click="${this._dwCounter}" style="display: ${this.isVisible ? 'block':'none'};"><---volver</h2>
+                <h2 id="count" class="mb">${this.counter+1}/10</h2>
+                <h2>${this.appPrice}$</h2>
+            </div>
+            <p class="fw-bold" style="font-size: 3rem;">${this.pages[this.counter].question}</p>
+            <div class="d-flex flex-row options">
+                ${this.pages[this.counter].options.map((item) => html`
+                    <div @click="${() => this._checkPopUp(item)}" class="d-flex flex-column align-items-center item">
+                    <img src=${item.photo} alt="" class="photo">
+                    <p part="button" class="subtext">${item.subtext}</p>
+                    </div>
+                `)}
+            <pop-up style="display: ${this.popUp ? 'block':'none'};" class="pop"></pop-up>
+            </div>
         </div>  `
         :html`<form-f></form-f>`}`;
     }
 
     _uptCounter(item){  
         if(this.counter < 9 && this.counter >= 0){
-            this.counter = this.counter + 1;
-            localStorage.setItem(`op${this.counter}`,`${item.subtext}`);       
+            localStorage.setItem(`op${this.counter}`,`${item.subtext}`);     
             this.appPrice += parseInt(`${item.price}`);
             this.priceHist.push(this.appPrice);
             console.log(this.priceHist);
@@ -318,7 +333,8 @@ export class Pages extends LitElement {
             if(this.counter>=0){
                 this.isVisible = true;
             }
-            
+            this.popUp = false;
+            this.counter = this.counter + 1;
         }
         else if(this.counter >=9){
             localStorage.setItem(`op${this.counter+1}`,`${item.subtext}`)
@@ -339,6 +355,14 @@ export class Pages extends LitElement {
             if(this.counter<=0){
                 this.isVisible = false;
             }
+        }
+    }
+    _checkPopUp(item){
+        if(item.subtext === "Aplicación de escritorio"){
+            this.popUp = true;
+        }
+        else{
+            this._uptCounter(item);
         }
     }
     _sendData(){
