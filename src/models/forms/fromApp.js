@@ -1,11 +1,11 @@
 export class plantillaData {
 
-    constructor({ id, firstName, lastName, email, country, city, phoneNumber, cost, config = {} }) {
+    constructor({ id, first_name, last_name, email, country, city, phone_number, cost, config = {} }) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.email = email;
-        this.phoneNumber = phoneNumber;
+        this.phone_number = phone_number;
         this.country = country;
         this.city = city;
         this.cost = cost ?? null;
