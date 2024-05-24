@@ -36,7 +36,7 @@ export class Form extends LitElement {
     }
 
     constructor() {
-
+        super();
         this.formulario = true
     }
 
