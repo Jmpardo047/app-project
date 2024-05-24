@@ -60,7 +60,7 @@ export class Home extends LitElement {
   }
 
   _onClick() {
-    this.isActive = !this.isActive;
+    this.isActive = false;
   }
 
 
