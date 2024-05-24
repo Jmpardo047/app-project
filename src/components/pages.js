@@ -5,7 +5,10 @@ export class Pages extends LitElement {
     static properties = {
         pages: {},
         counter: {type:Number},
-        isActive: {type:Boolean}
+        isActive: {type:Boolean},
+        appPrice: {type:Number},
+        priceHist: {type:Array},
+        isVisible: {type:Boolean}
     }
     
 
@@ -13,6 +16,9 @@ export class Pages extends LitElement {
         super();
         this.counter = 0;
         this.isActive = true
+        this.appPrice = 0;
+        this.priceHist = [0];
+        this.isVisible = false;
         this.pages = [
 
             {   number: "1/10",
@@ -22,14 +28,18 @@ export class Pages extends LitElement {
                      
                         photo: "img/Picture2.png",
                         subtext: "Calidad óptima",
+                        price: "1000"
                     },
                     {
                         photo: "img/Picture3.png",
                         subtext: "Buena relacion calidad/precio",
+                        price: "2000"
                     },
                     {
                         photo: "img/Picture4.png",
                         subtext: "No me importa tanto la calidad",
+                        price: "3000"
+
                     }
                 ]
             },
@@ -40,22 +50,27 @@ export class Pages extends LitElement {
                     {
                         photo: "img/android.png",
                         subtext: "Aplicación Android",
+                        price: "1000"
                     },
                     {
                         photo: "img/ios.png",
                         subtext: "Aplicación iOS",
+                        price: "2000"
                     },
                     {
                         photo: "img/windows.png",
                         subtext: "Aplicación Windows Phone",
+                        price: "2000"
                     },
                     {
                         photo: "img/windows.png",
-                        subtext: "Aplicación Android + iOS"
+                        subtext: "Aplicación Android + iOS",
+                        price: "3000"
                     },
                     {
                         photo: "img/windows.png",
-                        subtext: "Aplicación de escritorio"
+                        subtext: "Aplicación de escritorio",
+                        price: "3000"
                     }
                 ]
             },
@@ -65,18 +80,22 @@ export class Pages extends LitElement {
                     {
                         photo: "img/Picture2.png",
                         subtext: "Interfaz sencilla",
+                        price: "1000"
                     },
                     {
                         photo: "img/Picture3.png",
                         subtext: "Interfaz personalizada",
+                        price: "2000"
                     },
                     {
                         photo: "img/Picture4.png",
                         subtext: "Interfaz replicada de la web",
+                        price: "3000"
                     },
                     {
                         photo: "img/Picture4.png",
-                        subtext: "No necesito diseño"
+                        subtext: "No necesito diseño",
+                        price: "3000"
                     }
                 ]
             },
@@ -86,18 +105,22 @@ export class Pages extends LitElement {
                     {
                         photo: "img/Picture2.png",
                         subtext: "Aplicación gratuita con publicidad",
+                        price: "1000"
                     },
                     {
                         photo: "img/Picture3.png",
                         subtext: "Aplicación de pago",
+                        price: "2000"
                     },
                     {
                         photo: "img/Picture4.png",
                         subtext: "Compras dentro de la app",
+                        price: "3000"
                     },
                     {
                         photo: "",
-                        subtext: "Otros / No lo sé todavia"
+                        subtext: "Otros / No lo sé todavia",
+                        price: "3000"
                     }
                 ]
             },
@@ -107,18 +130,22 @@ export class Pages extends LitElement {
                     {
                         photo: "img/Picture2.png",
                         subtext: "Sí, con redes sociales y email",
+                        price: "1000"
                     },
                     {
                         photo: "img/Picture3.png",
                         subtext: "Sí, con email",
+                        price: "2000"
                     },
                     {
                         photo: "img/Picture4.png",
                         subtext: "No",
+                        price: "3000"
                     },
                     {
                         photo: "",
-                        subtext: "No lo se todavia "
+                        subtext: "No lo se todavia ",
+                        price: "3000"
                     }
                 ]
             },
@@ -128,14 +155,17 @@ export class Pages extends LitElement {
                     {
                         photo: "img/Picture2.png",
                         subtext: "Sí",
+                        price: "1000"
                     },
                     {
                         photo: "img/Picture3.png",
                         subtext: "No",
+                        price: "2000"
                     },
                     {
                         photo: "img/Picture4.png",
                         subtext: "No lo sé",
+                        price: "3000"
                     }
                 ]
             },
@@ -145,14 +175,17 @@ export class Pages extends LitElement {
                     {
                         photo: "img/Picture2.png",
                         subtext: "Sí",
+                        price: "1000"
                     },
                     {
                         photo: "img/Picture3.png",
                         subtext: "No",
+                        price: "2000"
                     },
                     {
                         photo: "img/Picture4.png",
                         subtext: "No lo sé",
+                        price: "3000"
                     }
                 ]
             },
@@ -162,14 +195,17 @@ export class Pages extends LitElement {
                     {
                         photo: "img/Picture2.png",
                         subtext: "Sí",
+                        price: "1000"
                     },
                     {
                         photo: "img/Picture3.png",
                         subtext: "No",
+                        price: "2000"
                     },
                     {
                         photo: "img/Picture4.png",
                         subtext: "No lo sé",
+                        price: "3000"
                     }
                 ]
             },
@@ -179,14 +215,17 @@ export class Pages extends LitElement {
                     {
                         photo: "img/Picture2.png",
                         subtext: "Un único idioma",
+                        price: "1000"
                     },
                     {
                         photo: "img/Picture3.png",
                         subtext: "Bilingue",
+                        price: "2000"
                     },
                     {
                         photo: "img/Picture4.png",
                         subtext: "Multilingue",
+                        price: "3000"
                     },
                 ]
             },
@@ -196,44 +235,26 @@ export class Pages extends LitElement {
                     {
                         photo: "img/Picture2.png",
                         subtext: "Solo es una idea",
+                        price: "1000"
+                        
                     },
                     {
                         photo: "img/Picture3.png",
                         subtext: "Boceto ya preparado",
+                        price: "2000"
                     },
                     {
                         photo: "img/Picture4.png",
                         subtext: "App en desarrollo",
+                        price: "3000"
                     },
                     {
                         photo: "",
-                        subtext: "App ya desarrollada"
+                        subtext: "App ya desarrollada",
+                        price: "3000"
                     }
                 ]
             },
-            {
-                number:"3/10",
-                question:"¿Qué diseño quieres que tenga tu App?",
-                options:[
-                    {
-                        photo:"",
-                        subtext:"Interfaz Sencilla"
-                    },
-                    {
-                        photo:"",
-                        subtext:"Interfaz personalizada"
-                    },
-                    {
-                        photo:"",
-                        subtext:"Interfaz replicada de la web"
-                    },
-                    {
-                        photo:"",
-                        subtext:"No necesito diseño"
-                    }
-                    
-                ]
-            }
         ]   
     }
 
@@ -269,8 +290,9 @@ export class Pages extends LitElement {
         return html`${this.isActive ? html`        
         <div class="d-flex flex-column align-items-center content">
         <div class="nav d-flex">
-            <h2 class="volver" @click="${this._dwCounter}">< volver</h2>
+            <h2 class="volver" @click="${this._dwCounter}" style="display: ${this.isVisible ? 'block':'none'};"><---volver</h2>
             <h2 id="count" class="mb">${this.counter+1}/10</h2>
+            <h2>${this.appPrice}$</h2>
         </div>
         <p class="fw-bold" style="font-size: 3rem;">${this.pages[this.counter].question}</p>
         <div class="d-flex flex-row">
@@ -287,9 +309,15 @@ export class Pages extends LitElement {
     _uptCounter(item){  
         if(this.counter < 9 && this.counter >= 0){
             this.counter = this.counter + 1;
-            localStorage.setItem(`op${this.counter}`,`${item.subtext}`)
-            console.log(localStorage.getItem(`op${this.counter}`))
+            localStorage.setItem(`op${this.counter}`,`${item.subtext}`);       
+            this.appPrice += parseInt(`${item.price}`);
+            this.priceHist.push(this.appPrice);
+            console.log(this.priceHist);
+            console.log(localStorage.getItem(`op${this.counter}`));
             console.log(this.counter);
+            if(this.counter>=0){
+                this.isVisible = true;
+            }
             
         }
         else if(this.counter >=9){
@@ -302,7 +330,15 @@ export class Pages extends LitElement {
     }
     _dwCounter(){
         if(this.counter >= 0 && this.counter <= 10){
-            this.counter = this.counter - 1;
+            this.counter = this.counter - 1;    
+            let lstP = this.priceHist.length -2;
+            console.log(lstP);
+            this.appPrice = this.priceHist[lstP];
+            this.priceHist.pop();
+            console.log(this.appPrice);
+            if(this.counter<=0){
+                this.isVisible = false;
+            }
         }
     }
     _sendData(){
@@ -313,8 +349,5 @@ export class Pages extends LitElement {
         console.log(keys);
     }
 
-
 }
-   
-
 customElements.define("pages-p", Pages);
