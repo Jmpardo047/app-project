@@ -4,7 +4,7 @@ import { Pages } from './pages';
 export class Home extends LitElement {
   static get properties() {
     return {
-      isActive: {type:Boolean}
+      op: {type:Number}
     }
   }
 
@@ -37,7 +37,8 @@ export class Home extends LitElement {
 
   constructor() {
     super()
-    this.isActive = true;
+    this.docsHint = 'Click on the Vite and Lit logos to learn more'
+    this.op = 1
   }
 
   render() {
@@ -54,9 +55,8 @@ export class Home extends LitElement {
           </div> 
         </div>
       </div>`
-    :
-      html`<pages-p class="interactive"></pages-p>`}
-    `
+    :html`<pages-p class="interactive"></pages-p>`}
+    `;
   }
 
   _onClick() {
