@@ -3,7 +3,7 @@ import { BootStyles } from '../bootstrap';
 export class Pop extends LitElement {
   static get properties() {
     return {
-        title: { type: String },
+        popRta: { type: String },
     }
   }
 
@@ -19,6 +19,7 @@ export class Pop extends LitElement {
         .sect{
             width:100%;
             height:100%;
+            cursor:pointer;
         }
         .item{
             height:100%;
@@ -29,19 +30,20 @@ export class Pop extends LitElement {
 
   constructor() {
     super()
+    this.popRta = ''
   }
 
   render() {
     return html`
         <div class="pop-content">
         <section class="sect d-flex">
-            <div class="item">
+            <div class="item" @click="${this._SetRta}" id="r1">
                 <h2>Pwa</h2>
             </div>
-            <div class="item">
+            <div class="item" @click="${this._SetRta}" id="r2" >
                 <h2>Spa</h2>
             </div>
-            <div class="item">
+            <div class="item" @click="${this._SetRta}" id="r3">
                 <h2>Native</h2>
             </div>
             </div>
@@ -49,7 +51,11 @@ export class Pop extends LitElement {
     `
   }
 
-
+  _SetRta(event){
+    const h2 = event.currentTarget.querySelector('h2');
+    this.popRta = h2.textContent;
+    console.log(this.popRta)
+  }
 }
 
 window.customElements.define('pop-up', Pop)
