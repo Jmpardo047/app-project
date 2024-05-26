@@ -2,6 +2,7 @@ import { LitElement, css, html } from 'lit'
 import { BootStyles } from '../bootstrap';
 import { Form } from './form';
 import { Pop } from './pop';
+window.appPrice = Number;
 export class Pages extends LitElement {
     static properties = {
         pages: {},
@@ -10,7 +11,9 @@ export class Pages extends LitElement {
         appPrice: {type:Number},
         priceHist: {type:Array},
         isVisible: {type:Boolean},
-        popUp: {type:Boolean}
+        popUp: {type:Boolean},
+        popData: {type:String},
+        popPrice: {type:String},
     }
     
 
@@ -22,6 +25,9 @@ export class Pages extends LitElement {
         this.priceHist = [0];
         this.isVisible = false;
         this.popUp = false;
+        this.popData = '';
+        this._onDataRecieved = this._onDataRecieved.bind(this);
+        this.popPrice = '';
         this.pages = [
 
             {   number: "1/10",
@@ -322,6 +328,33 @@ export class Pages extends LitElement {
         </div>  `
         :html`<form-f></form-f>`}`;
     }
+    _onDataRecieved(event){
+        this.popData = event.detail.data;
+        this.popPrice = event.detail.price;
+        this._executeFunctionWithData();
+    }
+    _executeFunctionWithData(item) {
+        if (!(this.popData === "")){
+            console.log('Data received:', this.popData);
+            localStorage.setItem(`op${this.counter}`,`Aplicación de escritorio: ${this.popData}`);
+            this.appPrice += parseInt(`${this.popPrice}`);
+            this.priceHist.push(this.appPrice);
+            console.log(localStorage.getItem(`op${this.counter}`));
+            console.log(this.priceHist);
+            this.counter = this.counter + 1;
+            this.popUp = false;
+        }
+      }
+
+    connectedCallback(){
+        super.connectedCallback();
+        this.addEventListener('rta-sent',this._onDataRecieved);
+    }
+
+    disconnectedCallback(){
+        this.removeEventListener('rta-sent',this._onDataRecieved);
+        super.disconnectedCallback();
+    }
 
     _uptCounter(item){  
         if(this.counter < 9 && this.counter >= 0){
@@ -330,18 +363,19 @@ export class Pages extends LitElement {
             this.priceHist.push(this.appPrice);
             console.log(this.priceHist);
             console.log(localStorage.getItem(`op${this.counter}`));
-            console.log(this.counter);
+            console.log(localStorage)
             if(this.counter>=0){
                 this.isVisible = true;
             }
             this.popUp = false;
             this.counter = this.counter + 1;
+            console.log(this.counter);
         }
-        else if(this.counter >=9){
-            localStorage.setItem(`op${this.counter+1}`,`${item.subtext}`)
+        else if(this.counter >= 9){
+            localStorage.setItem(`op${this.counter}`,`${item.subtext}`)
             console.log(localStorage.getItem(`op${this.counter+1}`))
             console.log(this.counter);
-            this._sendData()
+            window.appPrice = this.appPrice;
             this.isActive = false;
         }
     }
@@ -361,17 +395,11 @@ export class Pages extends LitElement {
     _checkPopUp(item){
         if(item.subtext === "Aplicación de escritorio"){
             this.popUp = true;
+            this._executeFunctionWithData(item);
         }
         else{
             this._uptCounter(item);
         }
-    }
-    _sendData(){
-        const keys = [];
-            for(let i=0; i<localStorage.length;i++){
-                keys.push(localStorage.getItem(`op${i}`));
-            }
-        console.log(keys);
     }
 
 }

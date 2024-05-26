@@ -4,7 +4,31 @@ export class Pop extends LitElement {
   static get properties() {
     return {
         popRta: { type: String },
+        popPrice : { type: String },
+        options: {}
     }
+  }
+  constructor() {
+    super()
+    this.popRta = ''
+    this.popPrice = ''
+    this.options = [
+      {
+        op:'PWA',
+        img: 'img/pw-removebg-preview.png',
+        price: '2000'
+      },
+      {
+        op:'SPA',
+        img: 'img/spa-removebg-preview.png',
+        price: '1000'
+      },
+      {
+        op:'Native',
+        img: 'img/native-removebg-preview.png',
+        price: '3000'
+      }
+    ]
   }
 
   static get styles() {
@@ -14,7 +38,8 @@ export class Pop extends LitElement {
             color:black;
             width: 20em;
             height:20em;
-            padding:1em;    
+            padding:1em;
+            display:flex;
         }
         .sect{
             width:100%;
@@ -24,38 +49,49 @@ export class Pop extends LitElement {
         .item{
             height:100%;
             width:33%;
+            display:flex;
+            flex-direction:column;
+            cursor:pointer;
+        }
+        .img{
+          width:20%;
+          height:20%;
         }
     `]
   }
 
-  constructor() {
-    super()
-    this.popRta = ''
+
+
+  SetRta(item){
+    this.popRta = item.op;
+    this.popPrice = item.price;
+    const event = new CustomEvent('rta-sent',{
+      detail: {
+        data:this.popRta,
+        price:this.popPrice,
+      },
+      bubbles: true,
+      composed:true
+    })
+    this.dispatchEvent(event);
   }
 
   render() {
     return html`
         <div class="pop-content">
-        <section class="sect d-flex">
-            <div class="item" @click="${this._SetRta}" id="r1">
-                <h2>Pwa</h2>
+          ${this.options.map((item)=>html`
+            <div class="item" @click="${() => this.SetRta(item)}">
+            <img class="im" src="${item.img}" alt="${item.op}">
+            <h2>${item.op}</h2>
             </div>
-            <div class="item" @click="${this._SetRta}" id="r2" >
-                <h2>Spa</h2>
-            </div>
-            <div class="item" @click="${this._SetRta}" id="r3">
-                <h2>Native</h2>
-            </div>
-            </div>
-        </section>
+          `)}
+        </div>
     `
   }
 
-  _SetRta(event){
-    const h2 = event.currentTarget.querySelector('h2');
-    this.popRta = h2.textContent;
-    console.log(this.popRta)
-  }
+
+
+
 }
 
 window.customElements.define('pop-up', Pop)
