@@ -270,15 +270,12 @@ export class Pages extends LitElement {
 
     static get styles () {
         return [BootStyles, css`
-        .question {
-            font-size: 3rem;
-        }
         .photo{
             width: 70%;
             cursor: pointer;
         }
         #count{
-            
+            font-size:1.5rem;
         }
         .content{
             gap:2em;
@@ -288,20 +285,24 @@ export class Pages extends LitElement {
         }
         .volver{
             cursor:pointer;
+            font-size: 1.5rem;
         }
         .nav{
             width:100%;
             justify-content:space-between;
+            margin-bottom:5rem;
         }
         .pop{
             position:absolute;
 
         }
         .options{
+            margin-top:5rem;
             width:100%;
         }
         .item{
-            width:33%
+            margin-bottom:5rem;
+            width:30%
         }
         `]
     } 
@@ -310,11 +311,11 @@ export class Pages extends LitElement {
         return html`${this.isActive ? html`        
         <div class="d-flex flex-column content">
             <div class="nav d-flex">
-                <h2 class="volver" @click="${this._dwCounter}" style="display: ${this.isVisible ? 'block':'none'};"><---volver</h2>
+                <h1 class="volver" @click="${this._dwCounter}" style="display: ${this.isVisible ? 'block':'none'};">< volver</h1>
                 <h2 id="count" class="mb">${this.counter+1}/10</h2>
-                <h2>${this.appPrice}$</h2>
+                <h2 id="count">${this.appPrice}$</h2>
             </div>
-            <p class="fw-bold" style="font-size: 3rem;">${this.pages[this.counter].question}</p>
+            <p class="fw-bold text-center" style="font-size:2rem; margin-bottom: -1rem;">${this.pages[this.counter].question}</p>
             <div class="d-flex flex-row options">
                 ${this.pages[this.counter].options.map((item) => html`
                     <div @click="${() => this._checkPopUp(item)}" class="d-flex flex-column align-items-center item">
