@@ -295,6 +295,8 @@ export class Pages extends LitElement {
         }
         .pop{
             position:absolute;
+            bottom:2em;
+            right:11em;
 
         }
         .options{

@@ -34,12 +34,13 @@ export class Pop extends LitElement {
   static get styles() {
     return [BootStyles,css`
         .pop-content{
-            background-color:white;
-            color:black;
+            background-color: #23211e;;
+            color:white;
             width: 20em;
-            height:20em;
+            height:7em;
             padding:1em;
             display:flex;
+            border-radius: 10em;
         }
         .sect{
             width:100%;
@@ -47,15 +48,21 @@ export class Pop extends LitElement {
             cursor:pointer;
         }
         .item{
-            height:100%;
+            height:90%;
             width:33%;
             display:flex;
             flex-direction:column;
+            align-items:center;
+            justify-content:center;
             cursor:pointer;
+            gap:0.5em;
+            h4{
+              margin:0;
+            }
         }
-        .img{
-          width:20%;
-          height:20%;
+        .im{
+          width:40%;
+          height:40%;
         }
     `]
   }
@@ -82,7 +89,7 @@ export class Pop extends LitElement {
           ${this.options.map((item)=>html`
             <div class="item" @click="${() => this.SetRta(item)}">
             <img class="im" src="${item.img}" alt="${item.op}">
-            <h2>${item.op}</h2>
+            <h4>${item.op}</h4>
             </div>
           `)}
         </div>
