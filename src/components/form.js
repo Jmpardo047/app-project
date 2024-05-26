@@ -1,11 +1,10 @@
 import { LitElement, css, html } from 'lit'
 import { BootStyles } from '../bootstrap';
 import { plantillaData } from '../models/forms/fromApp';
-
+import { Home } from './home';
 export class Form extends LitElement {
     static get properties(){
         return {
-   
             formulario: {type:Boolean}
         }
     }
@@ -84,7 +83,7 @@ export class Form extends LitElement {
         return html`${this.formulario? html`
         <div class= "main-container">
         <div class="top">
-        <p class="volver fs-5 text">< volver</p>
+        <p class="volver fs-5 text" @click="${this._returnToHome}">< volver al inicio</p>
         </div>
         <div class="container-fluid px-1 py-5 mx-auto card-big">
         <div class="row d-flex justify-content-center container">
@@ -120,7 +119,7 @@ export class Form extends LitElement {
     </div>
     <div>
     
-        `: "" }`
+        `: html`<home-page></home-page>`}`;
     }
     async _handleSubmit(event) {
         event.preventDefault();
@@ -151,30 +150,34 @@ export class Form extends LitElement {
             }
         });
 
-        console.log(data)
+            console.log(data)
 
-        try {
-            const consumo = await fetch ('https://664780a22bb946cf2f9df761.mockapi.io/form-f', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-        });
-        console.log(consumo.body);
+            try {
+                const consumo = await fetch ('https://664780a22bb946cf2f9df761.mockapi.io/form-f', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+            });
+            console.log(consumo.body);
 
-        if (!consumo.ok) {
-            const somethingBad = await consumo.text();
-            throw new Error(`Error => ${consumo.statusText} - ${somethingBad}`);
+            if (!consumo.ok) {
+                const somethingBad = await consumo.text();
+                throw new Error(`Error => ${consumo.statusText} - ${somethingBad}`);
+            }
+            
+            const output = await consumo.json();
+            console.log('API response:', output)
         }
-        
-        const output = await consumo.json();
-        console.log('API response:', output)
+        catch (error) {
+            console.log ('Data Error',error)
+        }
     }
-    catch (error) {
-        console.log ('Data Error',error)
+
+    _returnToHome(){
+        this.formulario = false;
     }
-}
 
 }
  
