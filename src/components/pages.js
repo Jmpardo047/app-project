@@ -10,7 +10,9 @@ export class Pages extends LitElement {
         appPrice: {type:Number},
         priceHist: {type:Array},
         isVisible: {type:Boolean},
-        popUp: {type:Boolean}
+        popUp: {type:Boolean},
+        popData: {type:String},
+        popPrice: {type:String},
     }
     
 
@@ -22,6 +24,9 @@ export class Pages extends LitElement {
         this.priceHist = [0];
         this.isVisible = false;
         this.popUp = false;
+        this.popData = '';
+        this._onDataRecieved = this._onDataRecieved.bind(this);
+        this.popPrice = '';
         this.pages = [
 
             {   number: "1/10",
@@ -321,6 +326,33 @@ export class Pages extends LitElement {
         </div>  `
         :html`<form-f></form-f>`}`;
     }
+    _onDataRecieved(event){
+        this.popData = event.detail.data;
+        this.popPrice = event.detail.price;
+        this._executeFunctionWithData();
+    }
+    _executeFunctionWithData(item) {
+        if (!(this.popData === "")){
+            console.log('Data received:', this.popData);
+            localStorage.setItem(`op${this.counter}`,`Aplicación de escritorio: ${this.popData}`);
+            this.appPrice += parseInt(`${this.popPrice}`);
+            this.priceHist.push(this.appPrice);
+            console.log(localStorage.getItem(`op${this.counter}`));
+            console.log(this.priceHist);
+            this.counter = this.counter + 1;
+            this.popUp = false;
+        }
+      }
+
+    connectedCallback(){
+        super.connectedCallback();
+        this.addEventListener('rta-sent',this._onDataRecieved);
+    }
+
+    disconnectedCallback(){
+        this.removeEventListener('rta-sent',this._onDataRecieved);
+        super.disconnectedCallback();
+    }
 
     _uptCounter(item){  
         if(this.counter < 9 && this.counter >= 0){
@@ -360,6 +392,7 @@ export class Pages extends LitElement {
     _checkPopUp(item){
         if(item.subtext === "Aplicación de escritorio"){
             this.popUp = true;
+            this._executeFunctionWithData(item);
         }
         else{
             this._uptCounter(item);
