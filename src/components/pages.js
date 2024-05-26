@@ -28,248 +28,14 @@ export class Pages extends LitElement {
         this.popData = '';
         this._onDataRecieved = this._onDataRecieved.bind(this);
         this.popPrice = '';
-        this.pages = [
-
-            {   number: "1/10",
-                question:"¿Que nivel de calidad estás buscando?",
-                options:[
-                    {
-                     
-                        photo: "img/Picture2.png",
-                        subtext: "Calidad óptima",
-                        price: "1000"
-                    },
-                    {
-                        photo: "img/Picture3.png",
-                        subtext: "Buena relacion calidad/precio",
-                        price: "2000"
-                    },
-                    {
-                        photo: "img/Picture4.png",
-                        subtext: "No me importa tanto la calidad",
-                        price: "3000"
-
-                    }
-                ]
-            },
-            {
-                number: "2/10",
-                question:"¿Qué tipo de App necesitas?",
-                options:[
-                    {
-                        photo: "img/android.png",
-                        subtext: "Aplicación Android",
-                        price: "1000"
-                    },
-                    {
-                        photo: "img/ios.png",
-                        subtext: "Aplicación iOS",
-                        price: "2000"
-                    },
-                    {
-                        photo: "img/windows.png",
-                        subtext: "Aplicación Windows Phone",
-                        price: "2000"
-                    },
-                    {
-                        photo: "img/windows.png",
-                        subtext: "Aplicación Android + iOS",
-                        price: "3000"
-                    },
-                    {
-                        photo: "img/windows.png",
-                        subtext: "Aplicación de escritorio",
-                        price: "3000"
-                    }
-                ]
-            },
-            {
-                question:"¿Qué diseño quieres que tenga tu App?",
-                options:[
-                    {
-                        photo: "img/Picture2.png",
-                        subtext: "Interfaz sencilla",
-                        price: "1000"
-                    },
-                    {
-                        photo: "img/Picture3.png",
-                        subtext: "Interfaz personalizada",
-                        price: "2000"
-                    },
-                    {
-                        photo: "img/Picture4.png",
-                        subtext: "Interfaz replicada de la web",
-                        price: "3000"
-                    },
-                    {
-                        photo: "img/Picture4.png",
-                        subtext: "No necesito diseño",
-                        price: "3000"
-                    }
-                ]
-            },
-            {
-                question:"¿Cómo quieres sacar beneficio a tu App?",
-                options:[
-                    {
-                        photo: "img/Picture2.png",
-                        subtext: "Aplicación gratuita con publicidad",
-                        price: "1000"
-                    },
-                    {
-                        photo: "img/Picture3.png",
-                        subtext: "Aplicación de pago",
-                        price: "2000"
-                    },
-                    {
-                        photo: "img/Picture4.png",
-                        subtext: "Compras dentro de la app",
-                        price: "3000"
-                    },
-                    {
-                        photo: "",
-                        subtext: "Otros / No lo sé todavia",
-                        price: "3000"
-                    }
-                ]
-            },
-            {
-                question:"¿Tu App necesita un sistema de login?",
-                options:[
-                    {
-                        photo: "img/Picture2.png",
-                        subtext: "Sí, con redes sociales y email",
-                        price: "1000"
-                    },
-                    {
-                        photo: "img/Picture3.png",
-                        subtext: "Sí, con email",
-                        price: "2000"
-                    },
-                    {
-                        photo: "img/Picture4.png",
-                        subtext: "No",
-                        price: "3000"
-                    },
-                    {
-                        photo: "",
-                        subtext: "No lo se todavia ",
-                        price: "3000"
-                    }
-                ]
-            },
-            {
-                question:"¿Tu App tiene que estar integrada con un sitio web?",
-                options:[
-                    {
-                        photo: "img/Picture2.png",
-                        subtext: "Sí",
-                        price: "1000"
-                    },
-                    {
-                        photo: "img/Picture3.png",
-                        subtext: "No",
-                        price: "2000"
-                    },
-                    {
-                        photo: "img/Picture4.png",
-                        subtext: "No lo sé",
-                        price: "3000"
-                    }
-                ]
-            },
-            {
-                question:"¿Los usuarios tienen sus propios perfiles?",
-                options:[
-                    {
-                        photo: "img/Picture2.png",
-                        subtext: "Sí",
-                        price: "1000"
-                    },
-                    {
-                        photo: "img/Picture3.png",
-                        subtext: "No",
-                        price: "2000"
-                    },
-                    {
-                        photo: "img/Picture4.png",
-                        subtext: "No lo sé",
-                        price: "3000"
-                    }
-                ]
-            },
-            {
-                question:"¿Tu app necesita un panel de administración?",
-                options:[
-                    {
-                        photo: "img/Picture2.png",
-                        subtext: "Sí",
-                        price: "1000"
-                    },
-                    {
-                        photo: "img/Picture3.png",
-                        subtext: "No",
-                        price: "2000"
-                    },
-                    {
-                        photo: "img/Picture4.png",
-                        subtext: "No lo sé",
-                        price: "3000"
-                    }
-                ]
-            },
-            {
-                question:"¿Qué idiomas usará tu aplicación?",
-                options:[
-                    {
-                        photo: "img/Picture2.png",
-                        subtext: "Un único idioma",
-                        price: "1000"
-                    },
-                    {
-                        photo: "img/Picture3.png",
-                        subtext: "Bilingue",
-                        price: "2000"
-                    },
-                    {
-                        photo: "img/Picture4.png",
-                        subtext: "Multilingue",
-                        price: "3000"
-                    },
-                ]
-            },
-            {
-                question:"¿En qué estado se encuentra tu proyecto?",
-                options:[
-                    {
-                        photo: "img/Picture2.png",
-                        subtext: "Solo es una idea",
-                        price: "1000"
-                        
-                    },
-                    {
-                        photo: "img/Picture3.png",
-                        subtext: "Boceto ya preparado",
-                        price: "2000"
-                    },
-                    {
-                        photo: "img/Picture4.png",
-                        subtext: "App en desarrollo",
-                        price: "3000"
-                    },
-                    {
-                        photo: "",
-                        subtext: "App ya desarrollada",
-                        price: "3000"
-                    }
-                ]
-            },
-        ]   
+        this.pages = [];
+        this.loadPages();
     }
 
 
     static get styles () {
         return [BootStyles, css`
+        
         .photo{
             width: 70%;
             cursor: pointer;
@@ -317,9 +83,9 @@ export class Pages extends LitElement {
                 <h2 id="count" class="mb">${this.counter+1}/10</h2>
                 <h2 id="count">${this.appPrice}$</h2>
             </div>
-            <p class="fw-bold text-center" style="font-size:2rem; margin-bottom: -1rem;">${this.pages[this.counter].question}</p>
+            <p class="fw-bold text-center" style="font-size:2rem; margin-bottom: -1rem;">${this.pages[this.counter]?.question}</p>
             <div class="d-flex flex-row options">
-                ${this.pages[this.counter].options.map((item) => html`
+                ${this.pages[this.counter]?.options.map((item) => html`
                     <div @click="${() => this._checkPopUp(item)}" class="d-flex flex-column align-items-center item">
                     <img src=${item.photo} alt="" class="photo">
                     <p part="button" class="subtext">${item.subtext}</p>
@@ -330,12 +96,23 @@ export class Pages extends LitElement {
         </div>  `
         :html`<form-f></form-f>`}`;
     }
+
+    async loadPages(){
+        try{
+            const response = await fetch('public/pages.json');
+            this.pages = await response.json();
+        }
+        catch (error){
+            console.error('Error loading pages:', error);
+        }
+    }
+
     _onDataRecieved(event){
         this.popData = event.detail.data;
         this.popPrice = event.detail.price;
         this._executeFunctionWithData();
     }
-    _executeFunctionWithData(item) {
+    _executeFunctionWithData() {
         if (!(this.popData === "")){
             console.log('Data received:', this.popData);
             localStorage.setItem(`op${this.counter}`,`Aplicación de escritorio: ${this.popData}`);
@@ -397,7 +174,6 @@ export class Pages extends LitElement {
     _checkPopUp(item){
         if(item.subtext === "Aplicación de escritorio"){
             this.popUp = true;
-            this._executeFunctionWithData(item);
         }
         else{
             this._uptCounter(item);

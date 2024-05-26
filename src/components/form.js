@@ -108,7 +108,7 @@ export class Form extends LitElement {
                         <div class="row justify-content-between text-left">
                         
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">Costo<span class="text-danger"> *</span></label> <input type="text" class="inputs-d" id="cost" name="cost" placeholder="" required> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex bb"> <label class="form-control-label">Config<span class="text-danger"> *</span></label> <input type="text" class="inputs-d" id="config" name="config" placeholder="" required  > </div>
+
                         
                         <div class="row justify-content-center ">
                             <div class="form-group col-sm-6"><br><button type="submit" class="btn-block btn-primary button">Enviar</button> </div>
@@ -138,16 +138,7 @@ export class Form extends LitElement {
             city: formContent.get('city'),
             cost: window.appPrice,
             config: {
-                calidad: localStorage.getItem('op0'),
-                tipo: localStorage.getItem('op1'),
-                diseño: localStorage.getItem('op2'),
-                beneficio: localStorage.getItem('op3'),
-                login: localStorage.getItem('op4'),
-                integracion: localStorage.getItem('op5'),
-                perfiles: localStorage.getItem('op6'),
-                adminPanel: localStorage.getItem('op7'),
-                idioma: localStorage.getItem('op8'),
-                estado: localStorage.getItem('op9'),
+                
             }
         });
 

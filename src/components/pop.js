@@ -70,6 +70,7 @@ export class Pop extends LitElement {
 
 
   SetRta(item){
+    this.popRta = "";
     this.popRta = item.op;
     this.popPrice = item.price;
     const event = new CustomEvent('rta-sent',{
