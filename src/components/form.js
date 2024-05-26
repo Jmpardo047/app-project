@@ -66,7 +66,6 @@ export class Form extends LitElement {
                             <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">City<span class="text-danger"> *</span></label> <input type="text" id="city" name="city" placeholder="Enter your city" required> </div>
                         </div>
                         <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Cost<span class="text-danger"> *</span></label> <input type="text" id="cost" name="cost" placeholder="Enter your country" required> </div>
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Config<span class="text-danger"> *</span></label> <input type="text" id="config" name="config" placeholder="Enter your city" required  > </div>
                         
                         <div class="row justify-content-center">
@@ -95,14 +94,25 @@ export class Form extends LitElement {
             phone_number: formContent.get('phone_number'),
             country: formContent.get('country'),
             city: formContent.get('city'),
-            cost: Number(formContent.get('cost')),
-            config: {}
+            cost: window.appPrice,
+            config: {
+                calidad: localStorage.getItem('op0'),
+                tipo: localStorage.getItem('op1'),
+                diseño: localStorage.getItem('op2'),
+                beneficio: localStorage.getItem('op3'),
+                login: localStorage.getItem('op4'),
+                integracion: localStorage.getItem('op5'),
+                perfiles: localStorage.getItem('op6'),
+                adminPanel: localStorage.getItem('op7'),
+                idioma: localStorage.getItem('op8'),
+                estado: localStorage.getItem('op9'),
+            }
         });
 
         console.log(data)
 
         try {
-            const consumo = await fetch ('https://664780a22bb946cf2f9df761.mockapi.io/users', {
+            const consumo = await fetch ('https://664780a22bb946cf2f9df761.mockapi.io/form-f', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
