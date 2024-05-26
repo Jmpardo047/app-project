@@ -73,8 +73,8 @@ export class Form extends LitElement {
            margin-bottom: 2rem;
         }
         .containers-bottom{
-            background-color: white;
-            border: solid 1px blue;
+            background-color: rgb(6, 14, 74);
+            border: solid 1px white;
             border-radius: 5px;
             width:18rem;
             height:2rem;
@@ -113,7 +113,7 @@ export class Form extends LitElement {
                             <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">Ciudad<span class="text-danger"> *</span></label> <input type="text" class="inputs-d" id="city" name="city" placeholder="Ingresa tu ciudad" required> </div>
                         </div>
                         <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Costo<span class="text-danger"> *</span></label><div class="containers-bottom">${this.appPrice}</div></div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Costo<span class="text-danger"> *</span></label><div class="containers-bottom">${window.appPrice}</div></div>
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Config<span class="text-danger"> *</span></label><div class="containers-bottom"></div></div>
                         
                         <div class="row justify-content-center ">
