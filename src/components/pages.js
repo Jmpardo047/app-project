@@ -2,6 +2,7 @@ import { LitElement, css, html } from 'lit'
 import { BootStyles } from '../bootstrap';
 import { Form } from './form';
 import { Pop } from './pop';
+window.appPrice = Number;
 export class Pages extends LitElement {
     static properties = {
         pages: {},
@@ -361,18 +362,19 @@ export class Pages extends LitElement {
             this.priceHist.push(this.appPrice);
             console.log(this.priceHist);
             console.log(localStorage.getItem(`op${this.counter}`));
-            console.log(this.counter);
+            console.log(localStorage)
             if(this.counter>=0){
                 this.isVisible = true;
             }
             this.popUp = false;
             this.counter = this.counter + 1;
+            console.log(this.counter);
         }
-        else if(this.counter >=9){
-            localStorage.setItem(`op${this.counter+1}`,`${item.subtext}`)
+        else if(this.counter >= 9){
+            localStorage.setItem(`op${this.counter}`,`${item.subtext}`)
             console.log(localStorage.getItem(`op${this.counter+1}`))
             console.log(this.counter);
-            this._sendData()
+            window.appPrice = this.appPrice;
             this.isActive = false;
         }
     }
@@ -397,13 +399,6 @@ export class Pages extends LitElement {
         else{
             this._uptCounter(item);
         }
-    }
-    _sendData(){
-        const keys = [];
-            for(let i=0; i<localStorage.length;i++){
-                keys.push(localStorage.getItem(`op${i}`));
-            }
-        console.log(keys);
     }
 
 }
