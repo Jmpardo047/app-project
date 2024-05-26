@@ -10,16 +10,16 @@ export class plantillaData {
         this.city = city;
         this.cost = cost ?? null;
         this.config = {
-            calidad: config?.calidad ?? null,
-            tipo: config?.tipo ?? null,
-            diseño: config?.tipoAppDesk ?? null,
-            beneficio: config?.beneficio ?? null,
-            login: config?.login ?? null,
-            integracion: config?.integracion ?? null,
-            perfiles: config?.perfiles ?? null,
-            adminPanel: config?.panelAdmin ?? null,
-            idioma: config?.idioma ?? null,
-            estado: config?.estado ?? null
+            calidad: localStorage.getItem('op0'),
+            tipo: localStorage.getItem('op1'),
+            diseño: localStorage.getItem('op2'),
+            beneficio: localStorage.getItem('op3'),
+            login: localStorage.getItem('op4'),
+            integracion: localStorage.getItem('op5'),
+            perfiles: localStorage.getItem('op6'),
+            adminPanel: localStorage.getItem('op7'),
+            idioma: localStorage.getItem('op8'),
+            estado: localStorage.getItem('op9'),
         };
     }
 }
