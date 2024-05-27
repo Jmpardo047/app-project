@@ -68,6 +68,12 @@ export class Pages extends LitElement {
             margin-top:5rem;
             width:100%;
         }
+        .item:hover {
+            background-color: #514d4a;
+            scale: 1.02;
+            transition-duration: 1s;
+            border: 1px solid white;
+          }
         .item{
             margin-bottom:5rem;
             width:30%
