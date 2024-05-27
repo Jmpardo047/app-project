@@ -53,7 +53,7 @@ export class Home extends LitElement {
     return html`${this.isActive ? html`
       <div class="interactive">
         <div class="d-flex justify-content-center mb-4">
-        <img src="img/Picture1.png" class="logo" alt="init logo" />
+        <img src="public/img/Picture1.png" class="logo" alt="init logo" />
         </div>
         <h1 class="fw-bold ">¿Cuánto cuesta desarrollar mi <span>app<span>?</h1>
         <p class="text-center fs-5 fw-medium">Calcula de forma rápida el costo para crear tu app, contestando estas sencillas preguntas.</p>
