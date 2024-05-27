@@ -126,7 +126,7 @@ export class Pages extends LitElement {
 
     async loadPages(){
         try{
-            const response = await fetch('public/pages.json');
+            const response = await fetch('pages.json');
             this.pages = await response.json();
         }
         catch (error){
