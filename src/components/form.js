@@ -15,18 +15,20 @@ export class Form extends LitElement {
             display:flex;
             justify-content: center;
             align-self: center;
-            padding-top:4rem;
-            height: 88rem;
+            padding:4em 0;
+            margin-bottom:2em;
+            height: auto;
             width:50rem;
             background-color: #1f1d1b;
             border-radius: 10px;
         }
         .main-container{
-            width: 90rem;
-            height:270vh;
+            width: 100%;
+            height:auto;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding:2em 2em;
         }
         .volver{
             margin-bottom:3rem;
@@ -50,7 +52,9 @@ export class Form extends LitElement {
             cursor:pointer;
           }
         .card{
-            height:30rem;
+            display:flex;
+            justify-content:center;
+            height:auto;
             width:40rem;
             // background-color:black
      
@@ -66,7 +70,7 @@ export class Form extends LitElement {
             background-color: white;
             border: solid 1.5px #14e2cd;
             border-radius: 5px;
-            width:25rem;
+            width:100%;
             height:2rem;
             color: #1f1d1b;
             align-self:center
@@ -80,10 +84,10 @@ export class Form extends LitElement {
             background-color: white;
             border: solid 1.5px #14e2cd;
             border-radius: 5px;
-            width:30rem;
-            height:47rem;
-
-            align-self:center
+            width:100%;
+            height:auto;
+            align-self:center;
+            padding:2em 0;
         }
         .redes-s{
             width:2rem;
@@ -97,7 +101,7 @@ export class Form extends LitElement {
         .container-text{
             display:flex;
             // background-color: black;
-            width:50rem;
+            width:90%;
             text-align:center;
             align-items:center;
             flex-direction: column;
@@ -147,7 +151,7 @@ export class Form extends LitElement {
         .container-price-config{
             display:flex;
             justify-content: center;
-            width: 40rem;
+            width: 80%;
             flex-direction:column;
             align-items: center;
             gap:2rem;
@@ -161,13 +165,55 @@ export class Form extends LitElement {
             background-color: white;
             border: 1px solid blue;
             border-radius:5px;
-            width:25rem;
-            height:4rem;
+            width:80%;
+            height:auto;
             color:#1f1d1b;
         }
         .text{
             display:flex;
             justify-content: center;
+        }
+        .sup{
+            width:100%;
+            display:flex;
+            justify-content:center;
+        }
+        .options{
+            width:100%
+        }
+        .price{
+            width:100%;
+        }
+
+        @media(max-width: 600px){
+            .main-container{
+                width:100vw;
+                height:auto;
+            }
+            .title-txt{
+                width:90%;
+                font-size:1em;
+            }
+            .card-big{
+                width:100%;
+            }
+            .card{
+                width:80%;
+                height:auto;
+            }
+            .icons{
+                flex-direction:column;
+                gap:1em;
+            }
+            .container-price-config{
+                width:100%;
+            }
+            .container-option{
+                padding:1em;
+            }
+            .button{
+                width:100%;
+            }
         }
         `]
     }
@@ -190,45 +236,52 @@ export class Form extends LitElement {
         <div class="facebook"><img class="redes-s" src="img/facebook.png" >Share</div><div class="linkedin"><img class="redes-s" src="img/linkedin.png">Share</div><div class="google"><img class="redes-s" src="img/google.png">Google +</div><div class="x"><img class="redes-s" src="img/x.png">Share</div>
         </div>
         <p class="fw-bold fs-1">El costo estimado de tu app es</p>
-        <p class="fw-bold"style="color: #14e2cd; margin-bottom:5rem; font-size:4rem;;">$${window.appPrice}</p>
+        <p class="fw-bold title-txt"style="color: #14e2cd; margin-bottom:5rem; font-size:4rem;;">$${window.appPrice}</p>
         </div>
         <div class="card-big">
-        <div class="row d-flex justify-content-center container">
-            <div class="d-flex flex-column align-items-center text-center">
-                <h3 class="fw-bold fs-2 text" style="color: #14e2cd ;">Formulario</h3>
-                <p class="blue-text">Llena tus datos y así podremos crear una experincia personalizada para ti.</p>
-                <div class="card">
-                    <form class="form-card" @submit="${this._handleSubmit.bind(this)}">
-                        <div class="row justify-content-between text-left bb">
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label   class="form-control-label">Nombre<span class="text-danger"> *</span></label> <input type="text" class="inputs-d" id="first_name" name="first_name" placeholder="Ingresa tu nombre" required > </div>
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">Apellido<span class="text-danger"> *</span></label> <input type="text" class="inputs-d" id="last_name" name="last_name" placeholder="Ingresa tu apellido" required> </div>
-                        </div>
-                        <div class="row justify-content-between text-left bb">
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">Email<span class="text-danger"> *</span></label> <input type="email" class="inputs-d" id="email" name="email" placeholder="Ingresa tu email" required> </div>
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">Número de teléfono<span class="text-danger"> *</span></label> <input type="number" class="inputs-d" id="phone_number" name="phone_number" placeholder="Ingresa tu número" required> </div>
-                        </div>
-                        <div class="row justify-content-between text-left bb">
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">País<span class="text-danger"> *</span></label> <input type="text" class="inputs-d" id="country" name="country" placeholder="Ingresa tu país" required> </div>
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">Ciudad<span class="text-danger"> *</span></label> <input type="text" class="inputs-d" id="city" name="city" placeholder="Ingresa tu ciudad" required> </div>
-                        </div>
-                        <div class="container-price-config">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label text">Costo<span class="text-danger"> *</span></label><div class="container-price">${window.appPrice}</div></div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label text">Selección<span class="text-danger"> *</span></label><div class="container-config">
-                        <div class="container-option">¿Qué nivel de calidad estás buscando?<p class="fw-bold">${localStorage.op0}</p></div>
-                        <div class="container-option">¿Qué tipo de App necesitas? <p class="fw-bold"> ${localStorage.op1} </p></div> 
-                        <div class="container-option">¿Qué diseño quieres que tenga tu App? <p class="fw-bold"> ${localStorage.op2} </p></div>
-                        <div class="container-option">¿Cómo quieres sacar beneficio a tu App? <p class="fw-bold"> ${localStorage.op3} <p></div>
-                        <div class="container-option">¿Tu App necesita un sistema de login ? <p class="fw-bold"> ${localStorage.op4} </p></div> 
-                        <div class="container-option">¿Tu App tiene que estar integrada con un sitio web? <p class="fw-bold"> ${localStorage.op5} <p></div>
-                        <div class="container-option">¿Los usuarios tienen sus propios perfiles? <p class="fw-bold"> ${localStorage.op6} <p></div>
-                        <div class="container-option">¿Tu app necesita un panel de administración? <p class="fw-bold"> ${localStorage.op7} <p></div>
-                        <div class="container-option">¿Qué idiomas usará tu aplicación? <p class="fw-bold"> ${localStorage.op8} </p></div>
-                        <div class="container-option">¿En qué estado se encuentra tu proyecto? <p class="fw-bold"> ${localStorage.op9} </p></div></div></div>
-                        </div>
-                        <div class="row justify-content-center ">
-                            <div class="form-group col-sm-6"><br><button type="submit" class="btn-block btn-primary button">Enviar</button> </div>
-                        </div>
-                    </form>
+            <div class="row d-flex justify-content-center container">
+                <div class="d-flex flex-column align-items-center text-center">
+                    <h3 class="fw-bold fs-2 text" style="color: #14e2cd ;">Formulario</h3>
+                    <p class="blue-text">Llena tus datos y así podremos crear una experincia personalizada para ti.</p>
+                    <div class="card">
+                        <form class="form-card" @submit="${this._handleSubmit.bind(this)}">
+                            <div class="row justify-content-between text-left bb">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label   class="form-control-label">Nombre<span class="text-danger"> *</span></label> <input type="text" class="inputs-d" id="first_name" name="first_name" placeholder="Ingresa tu nombre" required > </div>
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">Apellido<span class="text-danger"> *</span></label> <input type="text" class="inputs-d" id="last_name" name="last_name" placeholder="Ingresa tu apellido" required> </div>
+                            </div>
+                            <div class="row justify-content-between text-left bb">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">Email<span class="text-danger"> *</span></label> <input type="email" class="inputs-d" id="email" name="email" placeholder="Ingresa tu email" required> </div>
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">Número de teléfono<span class="text-danger"> *</span></label> <input type="number" class="inputs-d" id="phone_number" name="phone_number" placeholder="Ingresa tu número" required> </div>
+                            </div>
+                            <div class="row justify-content-between text-left bb">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">País<span class="text-danger"> *</span></label> <input type="text" class="inputs-d" id="country" name="country" placeholder="Ingresa tu país" required> </div>
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">Ciudad<span class="text-danger"> *</span></label> <input type="text" class="inputs-d" id="city" name="city" placeholder="Ingresa tu ciudad" required> </div>
+                            </div>
+                            <div class="sup">
+                                <div class="container-price-config">
+                                    <div class="price"> 
+                                        <label class="form-control-label text">Costo<span class="text-danger"> *</span></label><div class="container-price">${window.appPrice}
+                                    </div></div>
+                                    <div class="options"> 
+                                        <label class="form-control-label text">Selección<span class="text-danger"> *</span></label><div class="container-config">
+                                        <div class="container-option">¿Qué nivel de calidad estás buscando?<p class="fw-bold">${localStorage.op0}</p></div>
+                                        <div class="container-option">¿Qué tipo de App necesitas? <p class="fw-bold"> ${localStorage.op1} </p></div> 
+                                        <div class="container-option">¿Qué diseño quieres que tenga tu App? <p class="fw-bold"> ${localStorage.op2} </p></div>
+                                        <div class="container-option">¿Cómo quieres sacar beneficio a tu App? <p class="fw-bold"> ${localStorage.op3} <p></div>
+                                        <div class="container-option">¿Tu App necesita un sistema de login ? <p class="fw-bold"> ${localStorage.op4} </p></div> 
+                                        <div class="container-option">¿Tu App tiene que estar integrada con un sitio web? <p class="fw-bold"> ${localStorage.op5} <p></div>
+                                        <div class="container-option">¿Los usuarios tienen sus propios perfiles? <p class="fw-bold"> ${localStorage.op6} <p></div>
+                                        <div class="container-option">¿Tu app necesita un panel de administración? <p class="fw-bold"> ${localStorage.op7} <p></div>
+                                        <div class="container-option">¿Qué idiomas usará tu aplicación? <p class="fw-bold"> ${localStorage.op8} </p></div>
+                                        <div class="container-option">¿En qué estado se encuentra tu proyecto? <p class="fw-bold"> ${localStorage.op9} </p></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center ">
+                                <div class="form-group col-sm-6"><br><button type="submit" class="btn-block btn-primary button">Enviar</button> </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
