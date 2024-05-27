@@ -44,6 +44,8 @@ export class Pages extends LitElement {
             font-size:1.5rem;
         }
         .content{
+            display:flex;
+            flex-direction:column;
             gap:2em;
             height:100vh;
             justify-content:center;
@@ -65,8 +67,10 @@ export class Pages extends LitElement {
 
         }
         .options{
+            display:flex;
             margin-top:5rem;
             width:100%;
+            flex-direction:row;
         }
         .item:hover {
             background-color: #514d4a;
@@ -77,6 +81,23 @@ export class Pages extends LitElement {
         .item{
             margin-bottom:5rem;
             width:30%
+        }
+        @media(max-width: 600px){
+            .content{
+                height:auto;
+                padding-top:2rem;
+            }
+            .options{
+                flex-direction:column;
+            }
+            .item{
+                width:100%;
+            
+            }
+            .pop{
+                bottom:-140vh;
+                right:2.5em;
+            }
         }
         `]
     } 
@@ -90,7 +111,7 @@ export class Pages extends LitElement {
                 <h2 id="count">${this.appPrice}$</h2>
             </div>
             <p class="fw-bold text-center" style="font-size:2rem; margin-bottom: -1rem;">${this.pages[this.counter]?.question}</p>
-            <div class="d-flex flex-row options">
+            <div class="d-flex options">
                 ${this.pages[this.counter]?.options.map((item) => html`
                     <div @click="${() => this._checkPopUp(item)}" class="d-flex flex-column align-items-center item">
                     <img src=${item.photo} alt="" class="photo">
