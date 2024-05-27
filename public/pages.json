@@ -5,17 +5,17 @@
         "options":[
             {
              
-                "photo": "public/img/Picture2.png",
+                "photo": "/img/Picture2.png",
                 "subtext": "Calidad óptima",
                 "price": "1000"
             },
             {
-                "photo": "public/img/Picture3.png",
+                "photo": "/img/Picture3.png",
                 "subtext": "Buena relacion calidad/precio",
                 "price": "2000"
             },
             {
-                "photo": "public/img/Picture4.png",
+                "photo": "/img/Picture4.png",
                 "subtext": "No me importa tanto la calidad",
                 "price": "3000"
 
@@ -26,27 +26,27 @@
         "question":"¿Qué tipo de App necesitas?",
         "options":[
             {
-                "photo": "public/img/android.png",
+                "photo": "/img/android.png",
                 "subtext": "Aplicación Android",
                 "price": "1000"
             },
             {
-                "photo": "public/img/ios.png",
+                "photo": "/img/ios.png",
                 "subtext": "Aplicación iOS",
                 "price": "2000"
             },
             {
-                "photo": "public/img/windows.png",
+                "photo": "/img/windows.png",
                 "subtext": "Aplicación Windows Phone",
                 "price": "2000"
             },
             {
-                "photo": "public/img/multiplatform-removebg-preview.png",
+                "photo": "/img/multiplatform-removebg-preview.png",
                 "subtext": "Aplicación Android + iOS",
                 "price": "3000"
             },
             {
-                "photo": "public/img/escritorio.png",
+                "photo": "/img/escritorio.png",
                 "subtext": "Aplicación de escritorio",
                 "price": "3000"
             }
@@ -56,22 +56,22 @@
         "question":"¿Qué diseño quieres que tenga tu App?",
         "options":[
             {
-                "photo": "public/img/inter-sencilla-removebg-preview.png",
+                "photo": "/img/inter-sencilla-removebg-preview.png",
                 "subtext": "Interfaz sencilla",
                 "price": "1000"
             },
             {
-                "photo": "public/img/inter-personalizada-removebg-preview.png",
+                "photo": "/img/inter-personalizada-removebg-preview.png",
                 "subtext": "Interfaz personalizada",
                 "price": "2000"
             },
             {
-                "photo": "public/img/web.png",
+                "photo": "/img/web.png",
                 "subtext": "Interfaz replicada de la web",
                 "price": "3000"
             },
             {
-                "photo": "public/img/no-diseño-removebg-preview.png",
+                "photo": "/img/no-diseño-removebg-preview.png",
                 "subtext": "No necesito diseño",
                 "price": "3000"
             }
@@ -81,22 +81,22 @@
         "question":"¿Cómo quieres sacar beneficio a tu App?",
         "options":[
             {
-                "photo": "public/img/gratis-removebg-preview.png",
-                "subtext": "Aplicación gratuita con publicidad",
+                "photo": "/img/gratis-removebg-preview.png",
+                "subtext": "Aplicación gratuita con idad",
                 "price": "1000"
             },
             {
-                "photo": "public/img/pago-removebg-preview.png",
+                "photo": "/img/pago-removebg-preview.png",
                 "subtext": "Aplicación de pago",
                 "price": "2000"
             },
             {
-                "photo": "public/img/compras-removebg-preview.png",
+                "photo": "/img/compras-removebg-preview.png",
                 "subtext": "Compras dentro de la app",
                 "price": "3000"
             },
             {
-                "photo": "public/img/idea-removebg-preview.png",
+                "photo": "/img/idea-removebg-preview.png",
                 "subtext": "Otros / No lo sé todavia",
                 "price": "3000"
             }
@@ -106,22 +106,22 @@
         "question":"¿Tu App necesita un sistema de login?",
         "options":[
             {
-                "photo": "public/img/gmail-removebg-preview.png",
+                "photo": "/img/gmail-removebg-preview.png",
                 "subtext": "Sí, con redes sociales y email",
                 "price": "1000"
             },
             {
-                "photo": "public/img/mail-removebg-preview.png",
+                "photo": "/img/mail-removebg-preview.png",
                 "subtext": "Sí, con email",
                 "price": "2000"
             },
             {
-                "photo": "public/img/no-profile-removebg-preview.png",
+                "photo": "/img/no-profile-removebg-preview.png",
                 "subtext": "No",
                 "price": "3000"
             },
             {
-                "photo": "public/img/other-removebg-preview.png",
+                "photo": "/img/other-removebg-preview.png",
                 "subtext": "No lo se todavia ",
                 "price": "3000"
             }
@@ -131,17 +131,17 @@
         "question":"¿Tu App tiene que estar integrada con un sitio web?",
         "options":[
             {
-                "photo": "public/img/plataformas-conectadas-removebg-preview.png",
+                "photo": "/img/plataformas-conectadas-removebg-preview.png",
                 "subtext": "Sí",
                 "price": "1000"
             },
             {
-                "photo": "public/img/no-conectado-removebg-preview.png",
+                "photo": "/img/no-conectado-removebg-preview.png",
                 "subtext": "No",
                 "price": "2000"
             },
             {
-                "photo": "public/img/other-removebg-preview.png",
+                "photo": "/img/other-removebg-preview.png",
                 "subtext": "No lo sé",
                 "price": "3000"
             }
@@ -151,17 +151,17 @@
         "question":"¿Los usuarios tienen sus propios perfiles?",
         "options":[
             {
-                "photo": "public/img/Picture2.png",
+                "photo": "/img/Picture2.png",
                 "subtext": "Sí",
                 "price": "1000"
             },
             {
-                "photo": "public/img/Picture3.png",
+                "photo": "/img/Picture3.png",
                 "subtext": "No",
                 "price": "2000"
             },
             {
-                "photo": "public/img/other-removebg-preview.png",
+                "photo": "/img/other-removebg-preview.png",
                 "subtext": "No lo sé",
                 "price": "3000"
             }
@@ -171,17 +171,17 @@
         "question":"¿Tu app necesita un panel de administración?",
         "options":[
             {
-                "photo": "public/img/admin.png",
+                "photo": "/img/admin.png",
                 "subtext": "Sí",
                 "price": "1000"
             },
             {
-                "photo": "public/img/no-administracion-removebg-preview.png",
+                "photo": "/img/no-administracion-removebg-preview.png",
                 "subtext": "No",
                 "price": "2000"
             },
             {
-                "photo": "public/img/other-removebg-preview.png",
+                "photo": "/img/other-removebg-preview.png",
                 "subtext": "No lo sé",
                 "price": "3000"
             }
@@ -191,17 +191,17 @@
         "question":"¿Qué idiomas usará tu aplicación?",
         "options":[
             {
-                "photo": "public/img/unico-idioma-removebg-preview.png",
+                "photo": "/img/unico-idioma-removebg-preview.png",
                 "subtext": "Un único idioma",
                 "price": "1000"
             },
             {
-                "photo": "public/img/bilingue-removebg-preview.png",
+                "photo": "/img/bilingue-removebg-preview.png",
                 "subtext": "Bilingue",
                 "price": "2000"
             },
             {
-                "photo": "public/img/multilenguaje-removebg-preview.png",
+                "photo": "/img/multilenguaje-removebg-preview.png",
                 "subtext": "Multilingue",
                 "price": "3000"
             }
@@ -211,23 +211,23 @@
         "question":"¿En qué estado se encuentra tu proyecto?",
         "options":[
             {
-                "photo": "public/img/idea-removebg-preview.png",
+                "photo": "/img/idea-removebg-preview.png",
                 "subtext": "Solo es una idea",
                 "price": "1000"
                 
             },
             {
-                "photo": "public/img/boceto-removebg-preview.png",
+                "photo": "/img/boceto-removebg-preview.png",
                 "subtext": "Boceto ya preparado",
                 "price": "2000"
             },
             {
-                "photo": "public/img/app-desarrollo-removebg-preview.png",
+                "photo": "/img/app-desarrollo-removebg-preview.png",
                 "subtext": "App en desarrollo",
                 "price": "3000"
             },
             {
-                "photo": "public/img/development-finish-removebg-preview.png",
+                "photo": "/img/development-finish-removebg-preview.png",
                 "subtext": "App ya desarrollada",
                 "price": "3000"
             }
