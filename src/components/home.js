@@ -33,6 +33,12 @@ export class Home extends LitElement {
       .interactive{
         transition:;
       }
+      @media(max-width: 600px){
+        .interactive{
+          margin:2em 0;
+          padding: 0 1em;
+        }
+      }
     `]
   }
 
